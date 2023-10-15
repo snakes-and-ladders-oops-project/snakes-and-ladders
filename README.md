@@ -10,6 +10,7 @@ Snakes and Ladders is a very popular game originated in ancient India. This repo
 - [Use Case Diagram](#use-case-diagram)
 - [Class Diagram](#class-diagram)
 - [Technology Stack](#technology-stack)
+- [Presentations](#presentations)
 
 
 ## Authors
