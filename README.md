@@ -46,5 +46,4 @@ Snakes and Ladders is a very popular game originated in ancient India. This repo
 
 ## Presentations
 
--[Presentation 1.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12910531/Presentation.1.pdf)
-
+-[Presentation 1](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12929666/OOPs_Project_Presentation_1.4.pdf)
