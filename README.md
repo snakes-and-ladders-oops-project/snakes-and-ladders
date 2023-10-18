@@ -45,5 +45,4 @@ Snakes and Ladders is a very popular game originated in ancient India. This repo
     - Canva
 
 ## Presentations
-
--[Presentation 1](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12929666/OOPs_Project_Presentation_1.4.pdf)
+[OOPs_Project_Presentation_1.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12999279/OOPs_Project_Presentation_1.pdf)
