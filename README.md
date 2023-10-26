@@ -33,6 +33,7 @@ Snakes and Ladders is a very popular game originated in ancient India. This repo
 ## Technology Stack
 
 - Front End
+    - Vite and JavaScript
     - React JS
     - CSS
 - Back End
@@ -42,7 +43,7 @@ Snakes and Ladders is a very popular game originated in ancient India. This repo
     - Git
     - GitHub
 - UI/UX
-    - Canva
+    - Figma
 
 ## Presentations
 [OOPs_Project_Presentation_1.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12999279/OOPs_Project_Presentation_1.pdf)
