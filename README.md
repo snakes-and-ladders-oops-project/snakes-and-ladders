@@ -46,4 +46,4 @@ Snakes and Ladders is a very popular game that originated in ancient India. This
     - Figma
 
 ## Presentations
-[OOPs_Project_Presentation_1.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/13508370/OOPs_Project_Presentation_1.pdf)
+[OOPs_Project_Presentation_1.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/13508388/OOPs_Project_Presentation_1.pdf)
