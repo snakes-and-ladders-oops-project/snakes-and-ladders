@@ -21,8 +21,7 @@ Snakes and Ladders is a very popular game that originated in ancient India. This
 - [@Surajkumar6299](https://github.com/Surajkumar6299)
 
 ## Software Requirement Specifications
--[Software Requirements Specifications.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/12910535/Software.Requirements.Specifications.pdf)
-
+[SRS_for_Snakes_and_Ladders_CS261_OOPS_Project.pdf](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/files/13508377/SRS_for_Snakes_and_Ladders_CS261_OOPS_Project.pdf)
 
 ## Use Case Diagram
 ![Use Case Diagram](https://github.com/snakes-and-ladders-oops-project/snakes-and-ladders/assets/128424631/779f2ea9-ce63-49ea-b628-a89053d65351)
