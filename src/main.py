@@ -1,65 +1,39 @@
 import pygame
-import sys
+from snakes_ladders.constants import WIDTH, HEIGHT
 from board import Board
 from dice import Dice
 
-# Initialize Pygame
 pygame.init()
 
-# Set up the Pygame window
-WIDTH, HEIGHT = 800, 900
-SQUARE_SIZE = 600 // 10
-WHITE = (255, 255, 255)
-
-# Calculate the starting position to center the grid
-start_x = (WIDTH - (10 * SQUARE_SIZE)) // 2
-start_y = (HEIGHT - (10 * SQUARE_SIZE)) // 2 - 100
-start_dice_x = 340
-start_dice_y = 700
-
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Snakes and Ladders")
+FPS = 60
 
-# Create instances of Board and Dice
-board = Board(10, 10, SQUARE_SIZE, start_x, start_y)
-dice = Dice()
+pygame.display.set_caption('Snakes and Ladders: OODP Project')
 
-# Function to draw the dice button
-def draw_dice_button(value, x, y):
-    button_rect = pygame.Rect(x, y, 120, 80)
-    pygame.draw.rect(screen, WHITE, button_rect)
-    font = pygame.font.Font(None, 36)
-    text = font.render(f"Dice: {value}", True, (0, 0, 0))
-    
-    # Adjust the button's center based on the text width
-    text_rect = text.get_rect(center=(button_rect.centerx, y + button_rect.height // 2))
-    screen.blit(text, text_rect)
-    
-    return button_rect
-
-# Main game loop
 def main():
-    dice_value = 1
+    run = True
+    clock = pygame.time.Clock()
 
-    while True:
+    board = Board(x=0, y=0)  # Adjust x and y values based on your preference
+    dice = Dice(x=WIDTH - 100, y=50)  # Adjust x and y values based on your preference
+
+    while run:
+        clock.tick(FPS)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+                run = False
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    dice_value = dice.roll()
-
-            elif event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:  
-                    button_rect = draw_dice_button(dice_value, start_dice_x, start_dice_y)
-                    if button_rect.collidepoint(event.pos):
-                        dice_value = dice.roll()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if dice.rect.collidepoint(event.pos):
+                    dice.roll()
 
         board.draw(screen)
-        button_rect = draw_dice_button(dice_value, start_dice_x, start_dice_y)
+        dice.draw(screen)
+
         pygame.display.flip()
+
+    pygame.quit()
 
 if __name__ == "__main__":
     main()
