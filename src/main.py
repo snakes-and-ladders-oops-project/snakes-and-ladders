@@ -1,18 +1,39 @@
 import pygame
-import sys
+from snakes_ladders.constants import WIDTH, HEIGHT
+from board import Board
+from dice import Dice
 
 pygame.init()
 
-screen = pygame.display.set_mode((600, 600))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+FPS = 60
 
-running = True
+pygame.display.set_caption('Snakes and Ladders: OODP Project')
 
-pygame.display.set_caption("Snakes and Ladders - OODP Project, Group 2")
-icon = pygame.image.load('src/img/logo.png')
-pygame.display.set_icon(icon)
+def main():
+    run = True
+    clock = pygame.time.Clock()
 
+    board = Board(x=20, y=20)  
+    dice = Dice(x=WIDTH - 100, y= HEIGHT//2 - 50//2)  
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    while run:
+        clock.tick(FPS)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if dice.rect.collidepoint(event.pos):
+                    dice.roll()
+
+        board.draw(screen)
+        dice.draw(screen)
+
+        pygame.display.flip()
+
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
