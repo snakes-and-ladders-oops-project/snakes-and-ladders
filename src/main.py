@@ -14,8 +14,8 @@ def main():
     run = True
     clock = pygame.time.Clock()
 
-    board = Board(x=0, y=0)  # Adjust x and y values based on your preference
-    dice = Dice(x=WIDTH - 100, y=50)  # Adjust x and y values based on your preference
+    board = Board(x=20, y=20)  
+    dice = Dice(x=WIDTH - 100, y= HEIGHT//2 - 50//2)  
 
     while run:
         clock.tick(FPS)
