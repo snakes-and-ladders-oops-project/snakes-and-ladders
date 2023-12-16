@@ -22,29 +22,23 @@ class Board:
         cells = []
 
         snakes = [
-            (98, 78),
-            (95, 75),
-            (92, 88),
-            (83, 57),
-            (73, 15),
-            (46, 5),
-            (44, 22),
-            (33, 9),
-            (28, 12),
-            (21, 2)
+            (27, 5),
+            (40, 3),
+            (43, 18),
+            (54, 31),
+            (66, 45),
+            (76, 58),
+            (89, 53),
+            (99, 41)
         ]
 
         ladders = [
-            (8, 29),
-            (16, 45),
-            (26, 54),
-            (36, 89),
-            (49, 67),
-            (62, 91),
-            (64, 84),
-            (71, 93),
-            (87, 99),
-            (94, 98)
+            (4, 25),
+            (13, 46),
+            (33, 49),
+            (50, 69),
+            (62, 81),
+            (74, 92),
         ]
 
         for i in range(self.rows):
@@ -109,22 +103,13 @@ class Board:
     def draw(self, screen):
         screen.fill(WHITE)
 
-        for i, row in enumerate(self.cells):
-            for j, cell_instance in enumerate(row):
-                height = cell_instance.CellHeight
-                rect = pygame.Rect(self.x + j * height, self.y + i * height, height, height)
+        # Load the board sprite
+        board_sprite = pygame.image.load('img/board.png')
 
-                # Fill the entire cell with the specified color
-                pygame.draw.rect(screen, cell_instance.color if hasattr(cell_instance, 'color') else (255, 255, 255), rect)
-                
-                # Draw black borders for each cell
-                pygame.draw.rect(screen, BLACK, rect, 1)
+        # Resize the board sprite to fit the entire board
+        board_sprite = pygame.transform.scale(board_sprite, (self.width, self.height))
 
-                font = pygame.font.Font(None, 36)
-                text = font.render(str(cell_instance.cellValue), True, BLACK)
-                text_rect = text.get_rect(center=(self.x + j * height + height // 2, self.y + i * height + height // 2))
-                screen.blit(text, text_rect)
+        # Blit the board sprite onto the screen
+        screen.blit(board_sprite, (self.x, self.y))
 
-                # Skip rendering "Jump to" message
-                if isinstance(cell_instance, JumperCell) and cell_instance.jump_to is not None:
-                    pass
+
