@@ -18,7 +18,7 @@ FPS = 60
 pygame.display.set_caption('Snakes and Ladders: OODP Project')
 
 # Load player sprites
-playerSprite = pygame.image.load('src/player.png').convert_alpha()
+playerSprite = pygame.image.load('img/player.png').convert_alpha()
 sprite_sheet = SpriteSheet(playerSprite)
 
 # Create player images
