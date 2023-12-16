@@ -1,9 +1,8 @@
 import pygame
 from player import Player
-from board import Board
+from board import Board  # Import the updated Board class
 from dice import Dice
 from spritesheet import SpriteSheet
-from jumper import JumperCell
 
 pygame.init()
 
@@ -31,7 +30,7 @@ player2_img = sprite_sheet.get_image(1, 16, 20, BLACK)
 player1 = Player("Chacha Varun", (255, 0, 0, 128), player_image=player1_img)
 player2 = Player("Dadda Pareek", (0, 0, 255, 128), player_image=player2_img)
 
-# Set up board and dice
+# Set up board and dice using the updated Board class
 board = Board(x=20, y=20)
 dice = Dice(x=WIDTH - 100, y=HEIGHT // 2 - 50 // 2)
 
@@ -46,6 +45,7 @@ def switch_player():
         current_player = player2
     else:
         current_player = player1
+
 # Main game loop
 run = True
 clock = pygame.time.Clock()

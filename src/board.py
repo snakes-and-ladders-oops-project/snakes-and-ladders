@@ -109,22 +109,13 @@ class Board:
     def draw(self, screen):
         screen.fill(WHITE)
 
-        for i, row in enumerate(self.cells):
-            for j, cell_instance in enumerate(row):
-                height = cell_instance.CellHeight
-                rect = pygame.Rect(self.x + j * height, self.y + i * height, height, height)
+        # Load the board sprite
+        board_sprite = pygame.image.load('board.png')
 
-                # Fill the entire cell with the specified color
-                pygame.draw.rect(screen, cell_instance.color if hasattr(cell_instance, 'color') else (255, 255, 255), rect)
-                
-                # Draw black borders for each cell
-                pygame.draw.rect(screen, BLACK, rect, 1)
+        # Resize the board sprite to fit the entire board
+        board_sprite = pygame.transform.scale(board_sprite, (self.width, self.height))
 
-                font = pygame.font.Font(None, 36)
-                text = font.render(str(cell_instance.cellValue), True, BLACK)
-                text_rect = text.get_rect(center=(self.x + j * height + height // 2, self.y + i * height + height // 2))
-                screen.blit(text, text_rect)
+        # Blit the board sprite onto the screen
+        screen.blit(board_sprite, (self.x, self.y))
 
-                # Skip rendering "Jump to" message
-                if isinstance(cell_instance, JumperCell) and cell_instance.jump_to is not None:
-                    pass
+
