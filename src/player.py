@@ -1,6 +1,5 @@
 import pygame
 from jumper import JumperCell
-from dice import Dice
 
 HEIGHT = 600
 WIDTH = 600
@@ -15,11 +14,16 @@ class Player:
         self.token_color = token_color
         self.radius = WIDTH // COLS // 6
         self.player_image = player_image
+        self.six_count = 0
 
     def set_board(self, board):
         self.board = board
 
     def move(self, steps):
+        if self.six_count == 3:
+            self.six_count = 0
+            return
+
         if self.position == 1:
             if steps != 6:
                 return

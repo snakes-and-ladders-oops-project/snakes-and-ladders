@@ -74,7 +74,8 @@ while run:
                 dice.roll()
                 steps = dice.value
                 current_player.move(steps)
-                switch_player()
+                if steps != 6:
+                    switch_player()
 
     # Check for winner
     if current_player.position >= COLS * COLS:
