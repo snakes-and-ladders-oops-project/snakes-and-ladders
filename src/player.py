@@ -1,5 +1,6 @@
 import pygame
 from jumper import JumperCell
+from dice import Dice
 
 HEIGHT = 600
 WIDTH = 600
@@ -19,6 +20,30 @@ class Player:
         self.board = board
 
     def move(self, steps):
+        if self.position == 1:
+            if steps != 6:
+                return
+            
+        if self.position == 95:
+            if steps == 6:
+                return
+        
+        if self.position == 96:
+            if steps >= 5:
+                return
+            
+        if self.position == 97:
+            if steps >= 4:
+                return
+            
+        if self.position == 98:
+            if steps >= 3:
+                return
+            
+        if self.position == 99:
+            if steps >= 2:
+                return
+
         initial_position = self.position
         self.position += steps
 

@@ -16,9 +16,11 @@ SQUARE_SIZE = WIDTH // COLS
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 FPS = 60
 pygame.display.set_caption('Snakes and Ladders: OODP Project')
+icon = pygame.image.load('src/img/logo.png')
+pygame.display.set_icon(icon)
 
-# Load player sprites
-playerSprite = pygame.image.load('img/player.png').convert_alpha()
+# Load player sprites   
+playerSprite = pygame.image.load('src/img/player.png').convert_alpha()
 sprite_sheet = SpriteSheet(playerSprite)
 
 # Create player images
