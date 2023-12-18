@@ -29,8 +29,8 @@ player1_img = sprite_sheet.get_image(0, 16, 20, BLACK)
 player2_img = sprite_sheet.get_image(1, 16, 20, BLACK)
 
 # Create player instances
-player1 = Player("Chacha Varun", (255, 0, 0, 128), player_image=player1_img)
-player2 = Player("Dadda Pareek", (0, 0, 255, 128), player_image=player2_img)
+player1 = Player("Shreyas", (255, 0, 0, 128), player_image=player1_img)
+player2 = Player("Sneha", (0, 0, 255, 128), player_image=player2_img)
 
 # Set up board and dice using the updated Board class
 board = Board(x=20, y=20)
@@ -39,14 +39,8 @@ dice = Dice(x=WIDTH - 100, y=HEIGHT // 2 - 50 // 2)
 player1.set_board(board)
 player2.set_board(board)
 
-current_player = player1
-
-def switch_player():
-    global current_player, player1, player2
-    if current_player == player1:
-        current_player = player2
-    else:
-        current_player = player1
+players = [player1, player2]
+current_player_index = 0
 
 # Main game loop
 run = True
@@ -66,20 +60,19 @@ while run:
             if dice.rect.collidepoint(event.pos):
                 dice.roll()
                 steps = dice.value
-                current_player.move(steps)
-                switch_player()
+                players[current_player_index].move(steps)
+                current_player_index = (current_player_index + 1) % len(players)
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 dice.roll()
                 steps = dice.value
-                current_player.move(steps)
-                if steps != 6:
-                    switch_player()
+                players[current_player_index].move(steps)
+                current_player_index = (current_player_index + 1) % len(players) if steps != 6 else current_player_index
 
     # Check for winner
-    if current_player.position >= COLS * COLS:
-        winner_message = f"{current_player.name} wins!"
+    if players[current_player_index].position >= COLS * COLS:
+        winner_message = f"{players[current_player_index].name} wins!"
         font = pygame.font.Font(None, 22)
         text = font.render(winner_message, True, (207, 52, 118))
         text_rect = text.get_rect(midtop=(dice.rect.centerx - 20, dice.rect.top - 10))
@@ -105,8 +98,8 @@ while run:
     # Draw board, dice, and players
     board.draw(screen)
     dice.draw(screen)
-    player1.draw_token(screen)
-    player2.draw_token(screen)
+    for player in players:
+        player.draw_token(screen)
 
     pygame.display.flip()
 
