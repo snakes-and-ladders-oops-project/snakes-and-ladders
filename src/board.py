@@ -104,7 +104,7 @@ class Board:
         screen.fill(WHITE)
 
         # Load the board sprite
-        board_sprite = pygame.image.load('src/img/board.png')
+        board_sprite = pygame.image.load('img/board.png')
 
         # Resize the board sprite to fit the entire board
         board_sprite = pygame.transform.scale(board_sprite, (self.width, self.height))
